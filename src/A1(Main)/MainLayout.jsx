@@ -1,9 +1,12 @@
-
-
+import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const MainLayout = () => {
     return (
         <div>
-            <h1>This is a home page </h1>
+             <Helmet>
+                <title>Medical Camp | Home</title>
+            </Helmet>
+        <Outlet></Outlet>
         </div>
     );
 };
