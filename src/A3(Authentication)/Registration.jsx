@@ -1,30 +1,44 @@
 import { useForm } from "react-hook-form";
 import Navbar from "../A2(Share)/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../A4(Hooks)/useAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 const Registration = () => {
-    const {createUser}=useAuth()
-   // const navigate=useNavigate()
+    const {createUser,updateProfileButton}=useAuth()
+   const navigate=useNavigate()
     const {
         register,
-        
         handleSubmit,
+        reset,
         formState: { errors },
       } = useForm();
 const onSubmit=(data)=>{
     console.log('this is form')
     createUser(data.email,data.password)
     .then(result=>{
-        console.log(result)
-        toast("Registration is successful !")
+       
+            toast("Registration is successful !",result)
+            
+      
+        updateProfileButton(data.name,data.photo)
+        .then(result=>{
+            toast("Your Profile update is successful !",result)  
+        })
+
+        
+            navigate('/')
+      
+        
+        
+        
         
     })
     .catch(error=>{
         const errorCode=error.code
         toast(errorCode)  
     })
+    reset()
 }
     
     return (

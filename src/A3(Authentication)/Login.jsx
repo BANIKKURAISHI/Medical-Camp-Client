@@ -1,6 +1,6 @@
 
 import Navbar from "../A2(Share)/Navbar";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import Google from "./Google";
 
 import useAuth from '../A4(Hooks)/useAuth';
@@ -11,9 +11,9 @@ import { useForm } from "react-hook-form";
 const Login = () => {
   const {logIn}=useAuth()
 
- const navigate=useNavigate()
- const location=useLocation()
- const from =location?.state?.form?.pathname || '/'
+ //const navigate=useNavigate()
+ //const location=useLocation()
+// const from =location?.state?.form?.pathname || '/'
  
 
  const {
@@ -22,13 +22,14 @@ const Login = () => {
   handleSubmit,
   formState: { errors },
 } = useForm();
+
   const onSubmit=(data)=>{
    
     logIn(data.email,data.password)
     .then(result=>{
       console.log(result)
       toast("log in successful !")
-      navigate(from,{replace:true})
+      //navigate(from,{replace:true})
     })
     .catch(error=>{
       const errorCode=error.code
@@ -115,7 +116,7 @@ const Login = () => {
                     
                 <button
             
-                  type="button"
+                  
                   className="text-white  mt-5  text-2xl w-full  bg-[#1da1f2] focus:ring-4 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-lg  py-2 inline-flex items-center me-2 mb-3 "
                 >
                  <span className="mx-[90px] md:mx-36 lg:mx-36">Sign in </span>   
