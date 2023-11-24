@@ -6,8 +6,8 @@ const Google = () => {
     const {googleLogin}=useAuth()
     const googleLoginButton=()=>{
         googleLogin()
-        .then(res=>{
-          toast('Login successful',res)   
+        .then(result=>{
+          toast('Login successful',result)   
         }) 
         .catch(error=>{
             toast(error.code)    

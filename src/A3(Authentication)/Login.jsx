@@ -1,8 +1,50 @@
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha, } from 'react-simple-captcha';
 import Navbar from "../A2(Share)/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Google from "./Google";
+import { useEffect, useState } from 'react';
+import useAuth from '../A4(Hooks)/useAuth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const {logIn}=useAuth()
+  const [disable,setDisable]=useState()
+ const navigate=useNavigate()
+ const location=useLocation()
+ const from =location?.state?.form?.pathname || '/'
+ useEffect(()=>{
+  loadCaptchaEnginge(6)
+ },[])
+
+ const {
+  register,
+
+  handleSubmit,
+  formState: { errors },
+} = useForm();
+  const onSubmit=(data)=>{
+   
+    logIn(data.email,data.password)
+    .then(result=>{
+      console.log(result)
+      toast("log in successful !")
+      navigate(from,{replace:true})
+    })
+    .catch(error=>{
+      const errorCode=error.code
+      toast (errorCode)
+    })
+  }
+
+  const valid=(e)=>{
+
+ const value= e.preventDefault()
+ if(validateCaptcha(value)){
+  setDisable(false)
+ }
+  }
   return (
     <div>
       <Navbar></Navbar>
@@ -27,7 +69,7 @@ const Login = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6" action="#">
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Your email
@@ -35,17 +77,22 @@ const Login = () => {
                   <input
                     type="email"
                     name="email"
+                    {...register("email", { required: true })}
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
                     required=""
                   />
+                  {errors.email && (
+                    <span className="text-red-400">Email is required</span>
+                  )}
                 </div>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Password
                   </label>
                   <input
+                  {...register("password", { required: true })}
                     type="password"
                     name="password"
                     id="password"
@@ -53,6 +100,11 @@ const Login = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                   />
+                  {
+                    errors.password&&(
+                      <span className="text-red-400">Password is required</span>
+                    )
+                  }
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
@@ -65,20 +117,18 @@ const Login = () => {
                         required=""
                       />
                     </div>
-                    <div className="ml-3 text-sm">
-                      <label className="text-gray-500 dark:text-gray-300">
-                        Remember me
-                      </label>
                     </div>
-                  </div>
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Forgot password?
-                  </a>
-                </div>
+                    </div>
+         <div className="form-control">
+          <label className="label">
+          <LoadCanvasTemplate />
+          </label>
+          <input onBlur={valid} type="password"  name="captcha" placeholder="type the text above" className="input input-bordered"  />
+          {/* required */}
+        </div>
+                    
                 <button
+                 disabled={disable}
                   type="button"
                   className="text-white  mt-5  text-2xl w-full  bg-[#1da1f2] focus:ring-4 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-lg  py-2 inline-flex items-center me-2 mb-3 "
                 >
@@ -106,6 +156,7 @@ const Login = () => {
           </div>
         </div>
       </section>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
