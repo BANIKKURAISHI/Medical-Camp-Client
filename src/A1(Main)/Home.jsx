@@ -1,10 +1,18 @@
+import Footer from "../A2(Share)/Footer";
 import Navbar from "../A2(Share)/Navbar";
 
 const Home = () => {
     return (
         <div>
-        <h1>This is home</h1>
+        
           <Navbar></Navbar>
+        <div className="min-h-screen">
+ 
+        </div>
+        <div className="mb-2">
+        <Footer></Footer>
+        </div>
+         
         </div>
     );
 };
