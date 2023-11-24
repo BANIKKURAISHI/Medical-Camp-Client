@@ -1,8 +1,8 @@
-import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha, } from 'react-simple-captcha';
+
 import Navbar from "../A2(Share)/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Google from "./Google";
-import { useEffect, useState } from 'react';
+
 import useAuth from '../A4(Hooks)/useAuth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -10,13 +10,11 @@ import { useForm } from "react-hook-form";
 
 const Login = () => {
   const {logIn}=useAuth()
-  const [disable,setDisable]=useState()
+
  const navigate=useNavigate()
  const location=useLocation()
  const from =location?.state?.form?.pathname || '/'
- useEffect(()=>{
-  loadCaptchaEnginge(6)
- },[])
+ 
 
  const {
   register,
@@ -38,13 +36,7 @@ const Login = () => {
     })
   }
 
-  const valid=(e)=>{
-
- const value= e.preventDefault()
- if(validateCaptcha(value)){
-  setDisable(false)
- }
-  }
+  
   return (
     <div>
       <Navbar></Navbar>
@@ -119,16 +111,10 @@ const Login = () => {
                     </div>
                     </div>
                     </div>
-         <div className="form-control">
-          <label className="label">
-          <LoadCanvasTemplate />
-          </label>
-          <input onBlur={valid} type="password"  name="captcha" placeholder="type the text above" className="input input-bordered"  />
-          {/* required */}
-        </div>
+         
                     
                 <button
-                 disabled={disable}
+            
                   type="button"
                   className="text-white  mt-5  text-2xl w-full  bg-[#1da1f2] focus:ring-4 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-lg  py-2 inline-flex items-center me-2 mb-3 "
                 >
