@@ -1,3 +1,4 @@
+import Banner from "../A2(Share)/Banner";
 import Footer from "../A2(Share)/Footer";
 import Navbar from "../A2(Share)/Navbar";
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
         
           <Navbar></Navbar>
+          <Banner></Banner>
         <div className="min-h-screen">
  
         </div>

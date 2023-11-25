@@ -1,8 +1,20 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../A4(Hooks)/useAuth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const Navbar = () => {
-  const {user}=useAuth()
+  const {user,logOut}=useAuth()
+  const out =()=>{
+    logOut()
+    .then(()=>{
+      toast("log in successful !")
+    })
+    .catch(error=>{
+      const errorCode=error.code
+      toast (errorCode)
+    })
+  }
   const nav = (
     <>
       <NavLink
@@ -103,14 +115,24 @@ Sing Up
               data-dropdown-placement="bottom"
             >
               <span className="sr-only">Open user menu</span>
-              <img
+              {
+                user && (
+                <> <img
+                className="w-8 h-8 rounded-full"
+                src={user?.photoUrl}
+                alt="user photo"
+              />
+              <button onClick={out}>LogOut</button></> 
+                )
+              }
+              {/* <img
                 className="w-8 h-8 rounded-full"
                 src="/docs/images/people/profile-picture-3.jpg"
                 alt="user photo"
-              />
+              /> */}
             </button>
 
-            <div
+            {/* <div
               className="z-50 hidden my-4 text-black list-none bg-white divide-y divide-gray-100  rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
               id="user-dropdown"
             > 
@@ -123,8 +145,8 @@ Sing Up
               <ul className="py-2" aria-labelledby="user-menu-button">
                 {nav}
               </ul>
-            </div>
-            <button
+  </div> */}
+<button
               data-collapse-toggle="navbar-user"
               type="button"
               className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -148,6 +170,7 @@ Sing Up
                 />
               </svg>
             </button>
+            
           </div>
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
@@ -159,6 +182,7 @@ Sing Up
           </div>
         </div>
       </nav>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
