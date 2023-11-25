@@ -74,7 +74,7 @@ const ManageCamps = () => {
             <th className="px-6 py-3">{item.description.slice(0,30)}.....</th>
             <th className="px-6 py-3">{item.services.slice(0,15) }...</th>
             <th className='flex flex-col ml-10'>
-            <Link to={` /update-camp/${item._id}`}> <button  className='btn ml-1 my-2 text-4xl text-white'><FaEdit/> </button></Link>    
+            <Link to={`/dashboard/update-camp/${item._id}`}> <button  className='btn ml-1 my-2 text-4xl text-white'><FaEdit/> </button></Link>    
             <button className='btn my-2 text-4xl text-white'><RiDeleteBin6Line /></button>
             </th>
             

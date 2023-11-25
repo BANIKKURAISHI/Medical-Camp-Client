@@ -8,6 +8,7 @@ import Dashboard from "../A5(Dashboard)/Dashboard";
 import Profile from "../A5(Dashboard)/Profile";
 import AddCamp from "../A5(Dashboard)/AddCamp";
 import ManageCamps from "../A5(Dashboard)/ManageCamps";
+import Update from "../A5(Dashboard)/Update";
 
 const myCreateRoute=createBrowserRouter([
      {
@@ -42,7 +43,13 @@ const myCreateRoute=createBrowserRouter([
             {
                 path:'manage-camps',
                 element:<ManageCamps></ManageCamps>
-            }
+            },
+            {
+                path:'update-camp/:id',
+                element:<Update></Update>,
+                loader:({params})=>fetch(`http://localhost:5000/manage-camps/${params.id}`)
+            },
+
         ]
     }
 ])
