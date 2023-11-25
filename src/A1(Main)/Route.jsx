@@ -4,6 +4,10 @@ import MainLayout from "./MainLayout";
 import Home from "./Home";
 import Login from "../A3(Authentication)/Login";
 import Registration from "../A3(Authentication)/Registration";
+import Dashboard from "../A5(Dashboard)/Dashboard";
+import Profile from "../A5(Dashboard)/Profile";
+import AddCamp from "../A5(Dashboard)/AddCamp";
+import ManageCamps from "../A5(Dashboard)/ManageCamps";
 
 const myCreateRoute=createBrowserRouter([
      {
@@ -22,6 +26,24 @@ const myCreateRoute=createBrowserRouter([
     {
         path:'/singUp',
         element:<Registration></Registration>
+    },
+    {
+        path:'/dashboard',
+        element:<Dashboard></Dashboard>,
+        children:[
+            {
+             path:'profile',
+             element:<Profile></Profile>
+            },
+            {
+                path:'add-a-camp',
+                element:<AddCamp></AddCamp>
+            },
+            {
+                path:'manage-camps',
+                element:<ManageCamps></ManageCamps>
+            }
+        ]
     }
 ])
 
