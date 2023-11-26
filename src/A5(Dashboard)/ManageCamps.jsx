@@ -4,9 +4,50 @@ import useCamp from '../A4(Hooks)/useCamp';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import useAxiosSecure from '../A4(Hooks)/useAxiosSecure';
+import Swal from 'sweetalert2';
 const ManageCamps = () => {
-   const [camp]=useCamp()
+   const [camp,refetch]=useCamp()
+   const axiosSecure=useAxiosSecure()
   
+   const deleteCamp=(id)=>{
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+        axiosSecure.delete(`/delete-camp/${id}`)
+        .then(res=>{
+        if(res.data.deletedCount>0)
+         {
+           Swal.fire({
+           title: "Deleted!",
+           text: "Your file has been deleted.",
+           icon: "success"
+         });
+         refetch()
+        }
+         })
+ 
+
+        //   console.log(id)
+        //   axiosSecure.delete(`/menu/${id}`)
+        //   .then(res=>{
+       
+        //    
+        //     console.log (res.data)
+    //       })
+          
+      }
+      });
+
+
+   }
 
 
 
@@ -75,7 +116,7 @@ const ManageCamps = () => {
             <th className="px-6 py-3">{item.services.slice(0,15) }...</th>
             <th className='flex flex-col ml-10'>
             <Link to={`/dashboard/update-camp/${item._id}`}> <button  className='btn ml-1 my-2 text-4xl text-white'><FaEdit/> </button></Link>    
-            <button className='btn my-2 text-4xl text-white'><RiDeleteBin6Line /></button>
+            <button onClick={()=>deleteCamp(item._id)} className='btn my-2 text-4xl text-white'><RiDeleteBin6Line /></button>
             </th>
             
           

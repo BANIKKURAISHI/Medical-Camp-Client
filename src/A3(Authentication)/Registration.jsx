@@ -4,7 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../A4(Hooks)/useAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import useAxiosPublic from "../A4(Hooks)/useAxiosPublic";
 const Registration = () => {
+    const axiosPublic=useAxiosPublic()
     const {createUser,updateProfileButton}=useAuth()
    const navigate=useNavigate()
     const {
@@ -23,7 +25,20 @@ const onSubmit=(data)=>{
       
         updateProfileButton(data.name,data.photo)
         .then(result=>{
-            toast("Your Profile update is successful !",result)  
+            
+            const userInfo={
+                name:data.name ,
+                email:data.email,
+                photo:data.photo
+            }
+            axiosPublic.post('/user',userInfo)
+            .then(res=>{
+                if(res.data.insertedId){
+                  toast("Update in successful !",result)
+                  reset()
+                }
+              })
+             
         })
 
         
