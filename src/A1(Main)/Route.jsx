@@ -11,6 +11,8 @@ import ManageCamps from "../A5(Dashboard)/ManageCamps";
 import Update from "../A5(Dashboard)/Update";
 import AvailableCamps from "../A6(Page)/AvailableCamps";
 import Details from "../A6(Page)/Details";
+import JoinForm from "../A6(Page)/JoinForm";
+import RegistrationCamp from "../A6(Page)/RegistrationCamp";
 
 
 const myCreateRoute=createBrowserRouter([
@@ -34,6 +36,12 @@ const myCreateRoute=createBrowserRouter([
         path:'/details/:id',
         element:<Details></Details>,
         loader:({params})=>fetch(`http://localhost:5000/manage-camps/${params.id}`)
+     },
+     {
+        path:'/join/:id',
+        element:<JoinForm></JoinForm>,
+        loader:({params})=>fetch(`http://localhost:5000/manage-camps/${params.id}`)
+        
      },
     
     {
@@ -59,6 +67,10 @@ const myCreateRoute=createBrowserRouter([
             {
                 path:'manage-camps',
                 element:<ManageCamps></ManageCamps>
+            },
+            {
+                path:'manage-registered-camps',
+                element:<RegistrationCamp></RegistrationCamp>
             },
             {
                 path:'update-camp/:id',
