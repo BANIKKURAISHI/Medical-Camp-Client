@@ -9,6 +9,9 @@ import Profile from "../A5(Dashboard)/Profile";
 import AddCamp from "../A5(Dashboard)/AddCamp";
 import ManageCamps from "../A5(Dashboard)/ManageCamps";
 import Update from "../A5(Dashboard)/Update";
+import AvailableCamps from "../A6(Page)/AvailableCamps";
+import Details from "../A6(Page)/Details";
+
 
 const myCreateRoute=createBrowserRouter([
      {
@@ -18,8 +21,21 @@ const myCreateRoute=createBrowserRouter([
         children:[{
             path:'/',
             element:<Home></Home>
-        }]
+        },
+       
+    ]
      },
+     {
+        path:'/Available-Camps',
+        element:<AvailableCamps></AvailableCamps>
+
+     },
+     {
+        path:'/details/:id',
+        element:<Details></Details>,
+        loader:({params})=>fetch(`http://localhost:5000/manage-camps/${params.id}`)
+     },
+    
     {
         path:'/login',
         element:<Login></Login>

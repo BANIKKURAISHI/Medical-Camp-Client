@@ -292,15 +292,15 @@ const AddCamp = () => {
 export default AddCamp;
 
 
-// campName:data.
-// image :data.
-// campFees:data.
-// scheduledDate:data.
-// time:data.
-// venue:data.
-// location:data.
-// services :data.
-// healthcare:data.
-// attendance:data.
-// targetAudience:data.
-// description:data.
+// campName
+// image 
+// campFees
+// scheduledDate
+// time
+// venue
+// location
+// services 
+// healthcare
+// attendance
+// targetAudience
+// description
