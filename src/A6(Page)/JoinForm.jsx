@@ -3,10 +3,16 @@ import { useLoaderData } from "react-router-dom";
 import useAxiosPublic from './../A4(Hooks)/useAxiosPublic';
 import Swal from "sweetalert2";
 import useAuth from "../A4(Hooks)/useAuth";
+import useAxiosSecure from './../A4(Hooks)/useAxiosSecure';
+
 
 const JoinForm = () => {
-  const {campFees,campName,time, venue, scheduledDate}=useLoaderData()
+  const {_id,campFees,campName,time, venue, scheduledDate,
+    attendance}=useLoaderData()
+    console.log(attendance)
   const axiosPublic=useAxiosPublic()
+  const axiosSecure=useAxiosSecure()
+
  //console.log(campFees)
  const {user}=useAuth()
  const email=user?.email
@@ -48,6 +54,19 @@ const JoinForm = () => {
      });
    }
    
+   const number=parseFloat(attendance)+1
+ 
+  
+   const change={
+    attendance:number.toString()
+   }
+   axiosSecure.patch(`update/${_id}`,
+  change)
+    .then(res=>console.log(res.data))
+    .catch(error=>console.log(error))
+   
+
+
    }
     
  
