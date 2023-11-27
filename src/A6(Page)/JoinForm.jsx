@@ -9,7 +9,7 @@ import useAxiosSecure from './../A4(Hooks)/useAxiosSecure';
 const JoinForm = () => {
   const {_id,campFees,campName,time, venue, scheduledDate,
     attendance}=useLoaderData()
-    console.log(attendance)
+    console.log(scheduledDate)
   const axiosPublic=useAxiosPublic()
   const axiosSecure=useAxiosSecure()
 
@@ -34,12 +34,14 @@ const JoinForm = () => {
       address:data.address,
       healthInfo:data.healthInfo,
       emergencyNumber:data.emergencyNumber,
-      Name:campName,
+      campName:campName,
       price:campFees,
-      date: scheduledDate,
+      date:scheduledDate,
       time:time,
       venue:venue,
-      email:email
+      email:email,
+      paymentStatus:"Unpaid",
+      confirmStatus:"Pending"
 
     }
     console.log(userInfo)

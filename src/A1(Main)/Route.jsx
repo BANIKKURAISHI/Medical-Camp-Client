@@ -14,6 +14,8 @@ import Details from "../A6(Page)/Details";
 import JoinForm from "../A6(Page)/JoinForm";
 import RegistrationCamp from "../A6(Page)/RegistrationCamp";
 import AllUsers from "../A5(Dashboard)/AllUsers";
+import Payment from "../A7(Payment)/Payment";
+
 
 
 const myCreateRoute=createBrowserRouter([
@@ -77,6 +79,12 @@ const myCreateRoute=createBrowserRouter([
                 path:'allUsers',
                 element:<AllUsers></AllUsers>
             },
+           {
+            path:'payment/:id' ,
+            element:<Payment></Payment>,
+            loader:({params})=>fetch(`http://localhost:5000/registration/${params.id}`)
+
+           },
             {
                 path:'update-camp/:id',
                 element:<Update></Update>,
