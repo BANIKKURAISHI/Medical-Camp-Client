@@ -13,6 +13,7 @@ import AvailableCamps from "../A6(Page)/AvailableCamps";
 import Details from "../A6(Page)/Details";
 import JoinForm from "../A6(Page)/JoinForm";
 import RegistrationCamp from "../A6(Page)/RegistrationCamp";
+import AllUsers from "../A5(Dashboard)/AllUsers";
 
 
 const myCreateRoute=createBrowserRouter([
@@ -71,6 +72,10 @@ const myCreateRoute=createBrowserRouter([
             {
                 path:'manage-registered-camps',
                 element:<RegistrationCamp></RegistrationCamp>
+            },
+            {
+                path:'allUsers',
+                element:<AllUsers></AllUsers>
             },
             {
                 path:'update-camp/:id',
