@@ -4,11 +4,11 @@ import useAxiosSecure from "../A4(Hooks)/useAxiosSecure";
 import useJoint from "../A4(Hooks)/useJoint";
 import useAuth from "../A4(Hooks)/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+
 import PropTypes from 'prop-types';
 
 const CheckoutForm = ({value}) => {
-   const {date,campName,venue,time,price }=value
+   const {date,campName,venue,time,price,_id}=value
     console.log(price)
     const stripe = useStripe();
   const elements= useElements();
@@ -18,7 +18,7 @@ const CheckoutForm = ({value}) => {
   const axiosSecure=useAxiosSecure()
   const [registration,refetch]=useJoint()
   const {user}=useAuth()
-  const navigate=useNavigate()
+  
   
 
 
@@ -98,9 +98,16 @@ const payment={
 
 
 }
-console.log(payment)
-const res=await axiosSecure.post('/payment',payment)
 
+const updateStatus={
+    paymentStatus:"Paid",
+    confirmStatus:"Confirmed"
+}
+const resUp=await axiosSecure.patch(`/updateCamp/${_id}`,updateStatus)
+console.log(resUp)
+//console.log(payment)
+const res=await axiosSecure.post('/payment',payment)
+console.log('payment save ',res.data)
 refetch()
 if(res?.data?.paymentResult?.insertedId){
   Swal.fire({
@@ -108,7 +115,7 @@ if(res?.data?.paymentResult?.insertedId){
     text: "Your order has been successful.",
     icon: "success"
   });
-  navigate('/dashboard/paymentHistory')
+ 
 }
 
 }
@@ -116,27 +123,31 @@ if(res?.data?.paymentResult?.insertedId){
 
 
     return (
-        <div className='m-32'>
-        <form onSubmit={handleSubmit}>
+        <div className='m-32  border-2 border-white  h-60'>
+            <p className="mx-9 my-3 text-2xl text-white">Make a safe payment</p>
+        <form className="my-7 px-10 py-7" onSubmit={handleSubmit}>
         <CardElement
     options={{
       style: {
         base: {
           fontSize: '16px',
-          color: '#424770',
+          color: '#fff',
           '::placeholder': {
-            color: '#aab7c4',
+            color: '#fff',
            
           },
         },
         invalid: {
-          color: '#9e2146',
+          color: '#FF0000',
         },
       },
     }}
   />
-  <button  disabled={!stripe ||!elements} >
-    Pay
+   
+   
+
+  <button className="text-2xl text-white my-5" disabled={!stripe ||!elements}  >
+  Payment
   </button>
   <p className='text-red-500'>{error}</p>
   {

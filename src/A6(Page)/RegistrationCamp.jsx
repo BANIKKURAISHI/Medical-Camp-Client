@@ -2,25 +2,59 @@
 import { Link } from "react-router-dom";
 import useJoint from "../A4(Hooks)/useJoint";
 import CampFee from "./CampFee";
-
+import { GiCancel } from "react-icons/gi";
+import useAxiosSecure from "../A4(Hooks)/useAxiosSecure";
+import Swal from "sweetalert2";
 const RegistrationCamp = () => {
-    const [registration]=useJoint()
-    
+    const [registration,refetch]=useJoint()
+    const axiosSecure=useAxiosSecure()
+
+    const cancelRegistration=(id)=>{
+        
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to cancel this Registration!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/registration-cancel/${id}`)
+                .then(res=>{
+                    if(res.data.deletedCount>0){
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                          });
+                          refetch()
+                    }
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
+
+            
+            }
+          });
+        }  
     return (
-        <div>
+        <div className="bg-red-400">
        <CampFee></CampFee>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <div className="relative bg-orange-400 overflow-x-auto shadow-md sm:rounded-lg m-2">
+      <table className="w-full  text-sm text-left rtl:text-right text-white dark:text-gray-400">
         <thead className="text-xl  text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr className=''>
                 <th scope="col" className="p-4">
                   #
                 </th>
                 <th scope="col" className="px-6 py-3">
-                 Camp Name
+                 Name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                Scheduled Date
+                Date
                 </th>
                 <th scope="col" className="px-6 py-3">
                  Time
@@ -29,13 +63,13 @@ const RegistrationCamp = () => {
                 Venue
                 </th>
                 <th scope="col" className="px-6 py-3">
-                Camp Fee
+                Fees
                 </th>
                 <th scope="col" className="px-6 py-3">
-                Payment Status
+                Payment
                 </th>
                 <th scope="col" className="px-6 py-3">
-                Confirmation Status,
+                Confirmation
                 </th>
                 <th scope="col" className="px-6 py-3">
                 Action
@@ -58,18 +92,20 @@ const RegistrationCamp = () => {
             <th className="px-6 py-3">{item?.price}</th>
             <th className="px-12 py-3">{item?.paymentStatus}</th>
             <th className="px-12 py-3">{item?.confirmStatus}</th>
-            
-            <th className='flex flex-col ml-10 py-4'>
-            cancel
-            </th>
-             <th>
-            {item.price>0?
-             <Link to={`/dashboard/payment/${item._id}`}><button  type="button" className="text-white text-2xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg px-5 py-2.5 text-center me-2 mb-2">Payment</button></Link>
-              : 
-              <button disabled  type="button" className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-2xl px-5 py-2.5 text-center me-2 mb-2">Payment</button>
-              } 
-              </th>
-            </tr>)
+          <th>
+          {item.paymentStatus!=="Paid"?<button onClick={()=>cancelRegistration(item._id)} className='flex flex-col ml-10 py-4'>
+             <GiCancel  className="text-4xl text-white"/>
+            </button>:"On the way"}
+            </th>  
+        <th>
+         { item.paymentStatus==="Paid"?
+          <button disabled  type="button" className="text-white bg-gradient-to-r bg-red-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2">Payment</button>
+         :
+         
+        <Link to={`/dashboard/payment/${item._id}`}><button  type="button" className="text-white text-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg px-5 py-2.5 text-center me-2 mb-2">Payment</button></Link>
+        }
+       </th>
+       </tr>)
            }
            
            

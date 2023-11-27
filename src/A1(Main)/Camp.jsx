@@ -8,7 +8,7 @@ const Camp = () => {
    const [camp]=useCamp()
     
     return (
-        <div className="max-w-7xl mx-auto grid my-10 gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="w-11/12 mx-auto grid my-10 gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
          {
             camp.map(data=>
                 <div key={data.key} className="max-w-sm text-justify bg-blue-400 text-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

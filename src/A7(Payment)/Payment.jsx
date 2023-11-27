@@ -9,10 +9,9 @@ const Payment = () => {
     const data=useLoaderData()
     return (
         <div>
-            <div>
-                <h1 className="text-4xl">Confirm Your Join </h1>
-            </div>
+           
            <div className='ml-5 mr-20'>
+           
              <Elements stripe={stripePromise}  >
              <CheckoutForm value={data} />
              </Elements>

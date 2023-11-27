@@ -41,7 +41,7 @@ const JoinForm = () => {
       venue:venue,
       email:email,
       paymentStatus:"Unpaid",
-      confirmStatus:"Pending"
+      confirmStatus:"Pending",
 
     }
     console.log(userInfo)
