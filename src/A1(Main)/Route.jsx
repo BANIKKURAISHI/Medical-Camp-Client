@@ -66,7 +66,8 @@ const myCreateRoute=createBrowserRouter([
         children:[
             {
              path:'profile',
-             element:<Profile></Profile>
+             element:<Profile></Profile>,
+           
             },
             {
                 path:'add-a-camp',

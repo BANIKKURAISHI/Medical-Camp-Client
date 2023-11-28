@@ -1,11 +1,18 @@
+import useOrganizer from "./useOrganizer";
 
 
 const Profile = () => {
-    return (
-        <div>
-          This is my Profile  
-        </div>
-    );
+  const [userPost]=useOrganizer()
+  console.log(userPost)
+  return (
+    <div>
+
+    { userPost.post==="Organizers"? <><img src={userPost.photo} alt="" />
+      <h1>{userPost.name}</h1>
+      
+      </> :<h1>You are not a Organizers</h1>}
+    </div>
+  );
 };
 
 export default Profile;
