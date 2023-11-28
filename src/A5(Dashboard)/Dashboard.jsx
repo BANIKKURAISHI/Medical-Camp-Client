@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
 import Link from "./Link";
+import Navbar from "../A2(Share)/Navbar";
 
 
 const Dashboard = () => {
   return (
     <div className="min-h-screen mb-5 ">
-      <h1 className="text-4xl text-green-400 text-center ">Dashboard</h1>
-      <div className="flex flex-row w-11/12 mx-auto min-h-screen">
-        <div className="w-1/4 bg-fuchsia-400">
+      <Navbar></Navbar>
+     
+      <div className="flex flex-row max-w-7xl mx-auto min-h-screen">
+        <div className="w-1/4 bg-white shadow-2xl">
           <div className="text-3xl text-purple-500 my-2 ml-24">
-            Dashboard Menu
+          
           </div>
           <div>
             <Link></Link>

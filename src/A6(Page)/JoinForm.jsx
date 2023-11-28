@@ -4,6 +4,7 @@ import useAxiosPublic from './../A4(Hooks)/useAxiosPublic';
 import Swal from "sweetalert2";
 import useAuth from "../A4(Hooks)/useAuth";
 import useAxiosSecure from './../A4(Hooks)/useAxiosSecure';
+import Navbar from "../A2(Share)/Navbar";
 
 
 const JoinForm = () => {
@@ -34,6 +35,7 @@ const JoinForm = () => {
       address:data.address,
       healthInfo:data.healthInfo,
       emergencyNumber:data.emergencyNumber,
+      postName:data.postName,
       campName:campName,
       price:campFees,
       date:scheduledDate,
@@ -76,14 +78,15 @@ const JoinForm = () => {
  
   return (
     <div className="max-w-7xl mx-auto ">
-      <section className="bg-gray-50 dark:bg-gray-900 ">
+      <Navbar></Navbar>
+      <section className="bg-blue-500 text-white dark:bg-gray-900 ">
         <div className="flex flex-col py-4 mx-auto md:h-screen  lg:px-44 ">
           <div className="w-[1000px]  rounded-lg  dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6  space-y-4 md:space-y-6 sm:p-8">
               <h1 className="px-4 text-2xl font-bold">Give your information</h1>
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="w-[800px] text-2xl space-x-5 md:space-y-2"
+                className="w-[800px] text-2xl space-x-5 md:space-y-2 text-white"
                 action="#"
               >
                 <div className="ml-4">
@@ -171,6 +174,31 @@ const JoinForm = () => {
                   {errors.gender && (
                     <span className="text-red-400">
                      Gender is required
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="countries"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your Role
+                  </label>
+                  <select
+                    required  {...register("postName",{required: true})} 
+                    id="postName"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <option value="" disabled>Choose a Role</option>
+                    <option value="Participants">Participants</option>
+                    <option value="Healthcare Professionals">Healthcare Professionals</option>
+                    <option value="Organizers">Organizers</option>
+                  
+                   
+                  </select>
+                  {errors.postName && (
+                    <span className="text-red-400">
+                    Role is required
                     </span>
                   )}
                 </div>
@@ -267,7 +295,7 @@ const JoinForm = () => {
 
 
 
-                <button>Add </button>
+                <button className="bg-white  text-black shadow-xl p-2 rounded-sm w-1/4 ">Add </button>
               </form>
             </div>
           </div>

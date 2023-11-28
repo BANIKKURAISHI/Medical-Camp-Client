@@ -15,6 +15,7 @@ import JoinForm from "../A6(Page)/JoinForm";
 import RegistrationCamp from "../A6(Page)/RegistrationCamp";
 import AllUsers from "../A5(Dashboard)/AllUsers";
 import Payment from "../A7(Payment)/Payment";
+import Contact from "../A6(Page)/Contact";
 
 
 
@@ -50,6 +51,10 @@ const myCreateRoute=createBrowserRouter([
     {
         path:'/login',
         element:<Login></Login>
+    },
+    {
+        path:'/contactUs',
+        element:<Contact></Contact>
     },
     {
         path:'/singUp',
