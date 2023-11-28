@@ -1,4 +1,4 @@
-import useOrganizer from "./useOrganizer";
+import useOrganizer from "../A5(Dashboard)/useOrganizer";
 
 
 const Profile = () => {

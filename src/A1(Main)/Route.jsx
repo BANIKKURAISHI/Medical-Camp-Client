@@ -5,7 +5,7 @@ import Home from "./Home";
 import Login from "../A3(Authentication)/Login";
 import Registration from "../A3(Authentication)/Registration";
 import Dashboard from "../A5(Dashboard)/Dashboard";
-import Profile from "../A5(Dashboard)/Profile";
+import Profile from "../A8(Profile)/Profile";
 import AddCamp from "../A5(Dashboard)/AddCamp";
 import ManageCamps from "../A5(Dashboard)/ManageCamps";
 import Update from "../A5(Dashboard)/Update";
@@ -16,6 +16,8 @@ import RegistrationCamp from "../A6(Page)/RegistrationCamp";
 import AllUsers from "../A5(Dashboard)/AllUsers";
 import Payment from "../A7(Payment)/Payment";
 import Contact from "../A6(Page)/Contact";
+import ProfessionalsProfile from "../A8(Profile)/ProfessionalsProfile";
+import ParticipantProfile from "../A8(Profile)/ParticipantProfile";
 
 
 
@@ -84,6 +86,14 @@ const myCreateRoute=createBrowserRouter([
             {
                 path:'allUsers',
                 element:<AllUsers></AllUsers>
+            },
+            {
+                path:'Healthcare-Professionals',
+                element:<ProfessionalsProfile></ProfessionalsProfile>
+            },
+            {
+                path:'Participants',
+                element:<ParticipantProfile></ParticipantProfile>
             },
            {
             path:'payment/:id' ,
