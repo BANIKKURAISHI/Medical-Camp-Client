@@ -18,6 +18,8 @@ import Payment from "../A7(Payment)/Payment";
 import Contact from "../A6(Page)/Contact";
 import ProfessionalsProfile from "../A8(Profile)/ProfessionalsProfile";
 import ParticipantProfile from "../A8(Profile)/ParticipantProfile";
+import PaidCamp from "../A5(Dashboard)/PaidCamp";
+import ReviewForm from "../A5(Dashboard)/ReviewForm";
 
 
 
@@ -94,6 +96,16 @@ const myCreateRoute=createBrowserRouter([
             {
                 path:'Participants',
                 element:<ParticipantProfile></ParticipantProfile>
+            },
+            {
+                path:'paidCamp',
+                element:<PaidCamp></PaidCamp>
+            },
+            {
+                path:'review/:id',
+                element:<ReviewForm></ReviewForm>,
+                loader:({params})=>fetch(`http://localhost:5000/campRegistration/${params.id}`)
+
             },
            {
             path:'payment/:id' ,
