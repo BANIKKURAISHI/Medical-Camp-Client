@@ -17,6 +17,46 @@ const AllUsers = () => {
  
    })
 
+////user delete  
+  const deleteUser=(id)=>{
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to cancel this Registration!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            axiosSecure.delete(`/organizer-profile/delete/${id}`)
+            .then(res=>{
+                if(res.data.deletedCount>0){
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your User has been deleted.",
+                        icon: "success"
+                      });
+                      refetch()
+                }
+            })
+            .catch(error=>{
+                if(error){
+                    Swal.fire({
+                        title: "Error!!",
+                        text: "OPS!!!!There are some problem...",
+                        icon: "error"
+                      });
+                }
+            })
+
+        
+        }
+      });
+  }
+
+
+
    const makeAdmin=(id)=>{
    console.log(id)
    axiosSecure.patch(`/organizer-profile/admin/${id}`)
@@ -81,7 +121,7 @@ const AllUsers = () => {
                 
                 <th>
                 
-                <button   type="button" className="text-white px-10  bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm  py-2.5 text-center me-2 mb-2">Remove</button>
+                <button onClick={()=>deleteUser(item._id)}   type="button" className="text-white px-10  bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm  py-2.5 text-center me-2 mb-2">Remove</button>
                 </th>
                 
                 </tr>)

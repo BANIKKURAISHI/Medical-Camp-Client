@@ -33,7 +33,13 @@ const RegistrationCamp = () => {
                     }
                 })
                 .catch(error=>{
-                    console.log(error)
+                    if(error){
+                        Swal.fire({
+                            title: "Error!!",
+                            text: "OPS!!!!There are some problem...",
+                            icon: "error"
+                          });
+                    }
                 })
 
             
