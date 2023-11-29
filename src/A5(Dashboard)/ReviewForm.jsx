@@ -31,7 +31,7 @@ const ReviewForm = () => {
             price:price,
             Date:campDate,
             rating:data.rating,
-            feedback:data.feedback,
+            feedback:data.feedBack,
           }
           const result=await  axiosSecure.post('/feedback-and-ratings',Review)
           if(result.data.insertedId){

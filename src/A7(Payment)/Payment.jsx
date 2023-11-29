@@ -11,8 +11,7 @@ const Payment = () => {
         <div>
            
            <div className='ml-5 mr-20'>
-           
-             <Elements stripe={stripePromise}  >
+           <Elements stripe={stripePromise}  >
              <CheckoutForm value={data} />
              </Elements>
         </div>  

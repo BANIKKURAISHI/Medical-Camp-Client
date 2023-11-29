@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useOrganizer from "../A5(Dashboard)/useOrganizer";
 
 
@@ -23,8 +24,8 @@ const ParticipantProfile = () => {
            <div>
             <div className="flex flex-row">
               <h1 className="text-2xl text-white md:mx-20 my-4">Hello  {userPost.name} Do You Want Update Or Add More <br />
-               Information In Your profile</h1> 
-              <button className="bg-white text-black h-10 my-8 w-20 rounded-lg shadow-xl">Update</button> 
+              Information In Your profile</h1> 
+              <Link to={`/dashboard/UpdatePage/${userPost._id}`}><button  className="bg-white text-black h-10 my-8 w-20 rounded-lg shadow-xl">Update</button></Link>   
             </div>
            </div>
            

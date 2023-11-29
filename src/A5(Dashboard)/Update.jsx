@@ -12,7 +12,7 @@ const Update = () => {
     const data=useLoaderData()
     const {_id,
     campName,
- 
+  
     campFees,
     scheduledDate,
     time,
@@ -29,12 +29,12 @@ const Update = () => {
     const imageHosting =import.meta.env.VITE_IMAGE_HOSTING
     const imageHostingApi =`https://api.imgbb.com/1/upload?key=${imageHosting}`
     const onSubmit=async(data)=>{
-    //console.log(data)
+    console.log(data)
    // console.log(data)
-    const imageFile={image:data.image[0]}
+    const imageFile={image: data.image[0] }
+    console.log(imageFile)
     const MedicalCamp={
         campName:data.name,
-       
         campFees:data.campFees,
         scheduledDate:data.date,
         time:data.time,
@@ -45,18 +45,19 @@ const Update = () => {
         description:data.description
       }
       if(data.image.length > 0){
-        const res =await axiosPublic.post(imageHostingApi,imageFile,{
-            headers: {
-              "content-type": "multipart/form-data",
-            }
-          })
-          console.log(res)
-          MedicalCamp.image=res.data.data.display_url
-         
-      }
+        const res = await axiosPublic.post(imageHostingApi,imageFile, {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+    
+        });
+        console.log(res.data.data.display_url)
+        MedicalCamp.image =res.data.data.display_url
+       }
 
       axiosSecure.patch(`/update-camp/${_id}`,MedicalCamp)
       .then(res=>{
+        console.log(res.data)
         if(res.data.modifiedCount >0){
             Swal.fire({
               title: "Success!",
@@ -66,7 +67,7 @@ const Update = () => {
           }
       })
       
-
+     console.log(MedicalCamp)
     }
     return (
         <div>
@@ -258,7 +259,7 @@ const Update = () => {
                
 
                 <div className="my-3">
-                <input   name="image" id="image" {...register('image')} type="file" className="file-input w-full max-w-xs" />
+                <input  name="image" id="image" {...register('image')} type="file" className="file-input w-full max-w-xs" />
                
               </div>
                 <button

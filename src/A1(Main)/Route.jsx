@@ -21,9 +21,14 @@ import ParticipantProfile from "../A8(Profile)/ParticipantProfile";
 import PaidCamp from "../A5(Dashboard)/PaidCamp";
 import ReviewForm from "../A5(Dashboard)/ReviewForm";
 
+import UpdatePage from "../A8(Profile)/UpdatePage";
+
+
+
 
 
 const myCreateRoute=createBrowserRouter([
+    
      {
         path:'/',
         errorElement:<Error></Error>,
@@ -100,6 +105,11 @@ const myCreateRoute=createBrowserRouter([
             {
                 path:'paidCamp',
                 element:<PaidCamp></PaidCamp>
+            },
+            {
+                path:'UpdatePage/:id',
+                element:<UpdatePage></UpdatePage>,
+                loader:({params})=>fetch(`http://localhost:5000/organizer-profile/${params.id}`)
             },
             {
                 path:'review/:id',
