@@ -109,7 +109,7 @@ const myCreateRoute=createBrowserRouter([
             {
                 path:'UpdatePage/:id',
                 element:<UpdatePage></UpdatePage>,
-                loader:({params})=>fetch(`http://localhost:5000/organizer-profile/${params.id}`)
+               
             },
             {
                 path:'review/:id',
