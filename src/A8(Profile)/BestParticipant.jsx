@@ -1,9 +1,34 @@
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from './../A4(Hooks)/useAxiosSecure';
 
 
 const BestParticipant = () => {
+    const axiosSecure=useAxiosSecure()
+    const {data:participants=[]}=useQuery({
+        queryKey:['participant'],
+        queryFn:async()=>{
+            const res=await  axiosSecure.get('/participant')
+            return res.data
+        }
+    })
     return (
         <div>
-            
+            <div className="grid grid-cols-1 gap-4">
+                <h1>Our previous Best participants</h1>
+                {
+                    participants.map(participant=>
+                        <div key={participant._id} className="py-1">
+                             <div>
+                        <img className="w-40 h-40 rounded-full lg:ml-20" src={participant.image} alt="" />
+                        </div>
+                        <h1 className="text-2xl font-bold my-1">{participant.name} </h1>
+                        <h1 className="fond-bold">Age : {participant.age} </h1>
+                        <h1 className="fond-bold">{participant.address} </h1>
+                        </div>
+                       
+                        )
+                }
+            </div>
         </div>
     );
 };

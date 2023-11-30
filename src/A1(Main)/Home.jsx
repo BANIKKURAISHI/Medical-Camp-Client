@@ -19,6 +19,10 @@ const Home = () => {
         
           <Banner></Banner>
           <div className="min-h-screen">
+            <div className="max-w-7xl mx-auto mt-4">
+            <h1 className="text-4xl ">Popular Camp </h1>  
+            </div>
+          
           <BestCamps></BestCamps>
            </div>
         <div className="mb-2">

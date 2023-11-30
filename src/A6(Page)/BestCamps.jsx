@@ -10,7 +10,9 @@ const BestCamps = () => {
 
     return (
     <div className="max-w-7xl mx-auto flex flex-row">
+        
      <div className="w-3/4 max-w-7xl mx-auto grid my-10 gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+       
          {
             best.map(data=>
                 <div key={data.key} className="lg:w-[420px] h-[650px] text-justify bg-blue-400 text-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -50,7 +52,11 @@ const BestCamps = () => {
                     </div>
                 </div>
                 )
-         }   
+         }  
+
+         <div className="">
+         <Link to="/Available-Camps"><button className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">See All Camps</button></Link>   
+            </div> 
         </div> 
         <div className="w-1/4 lg:mr-10">
         <SocialPlatform></SocialPlatform>   

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { BsFacebook, BsYoutube } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { BiLogoInstagram } from "react-icons/bi";
+import BestParticipant from "./BestParticipant";
 
 
 
@@ -68,22 +69,8 @@ const SocialPlatform = () => {
           </div>
         </div>
         </div>
-        <div className="w-[350px] flex flex-col my-8  mx-3  lg:flex-col shadow-2xl text-center">
-          {/* <h1 className="text-3xl mt-4 lg:text-4xl my-4 ">Lets Start Make A Good World </h1>
-          <div className="my-5 mx-1 ml-1 mr-1 text-justify  lg:mx-16 ">
-         {loads.slice(0,3).map((load) => (
-            <div className="card gap-5" key={load._id} >
-              <div >
-              <h1>{load.title}</h1>
-              <p>{load.full_description}</p>
-              </div>
-            
-           
-            </div>
-            
-          ))}
-          <h1 className="text-end">-Mr.Rahman</h1>
-          </div> */}
+        <div className="w-[350px] flex flex-col rounded-xl mx-3  lg:flex-col shadow-2xl text-center">
+       <BestParticipant></BestParticipant>
         </div>
         
       </div>

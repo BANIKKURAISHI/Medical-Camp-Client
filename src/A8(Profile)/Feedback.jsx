@@ -22,6 +22,7 @@ const Feedback = () => {
      })
     return (
         <div className="max-w-7xl mx-auto shadow-xl">
+            <h1 className="text-4xl my-4">Previous Participant Feedback</h1>
         <>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
        

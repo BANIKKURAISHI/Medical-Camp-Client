@@ -1,8 +1,19 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<li></li>
+<li>AssalamuAlikum</li>
+<li>Assignment Category:assignment12_category_0016</li>
+<li>Project Name: Medical Camp</li>
+<li>Front-end Live Site Link:</li>
+<li>My Project Features</li>
+<li>At first every one see my home page Here some navigate button </li>
+<li>You need registration for log in .</li>
+<li>There are a DashBoard Here I added more features </li>
+<li>Admin can mangeCamp ,mange User, admin can add more camp,remove camp,update camp</li>
+<li>Participant will see his profile and register camp and he/she also see his registered camp</li>
+<li>Participant will cancel his/her camp before payment</li>
+<li>A admin will make a admin </li>
+<li>there a sort function most attendance camp show first</li>
+<li>Every boy see participant feed back </li>
+<li>There are a process to contact us</li>
+<li>A page where every camp see a participants </li>
+<li></li>
+<li></li>
