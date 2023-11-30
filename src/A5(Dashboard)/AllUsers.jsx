@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../A4(Hooks)/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const AllUsers = () => {
@@ -76,6 +77,9 @@ const AllUsers = () => {
 
    return (
     <div>
+         <Helmet>
+        <title>Medical-Camp | All user </title>
+        </Helmet>
        
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

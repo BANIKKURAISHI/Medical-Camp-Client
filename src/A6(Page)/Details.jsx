@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../A2(Share)/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const Details = () => {
   const load = useLoaderData();
@@ -7,6 +8,9 @@ const Details = () => {
   const { _id,campName, scheduledDate, time, venue, description,image } = load;
   return (
     <div className="max-w-7xl mx-auto">
+       <Helmet>
+    <title>Medical-Camp | Details </title>
+    </Helmet>
       <Navbar></Navbar>
        <img src={image} className="w-full h-[500px]" alt="" />
       <div className="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">

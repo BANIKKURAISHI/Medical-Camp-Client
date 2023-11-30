@@ -6,6 +6,7 @@ import useAuth from "../A4(Hooks)/useAuth";
 import Swal from "sweetalert2";
 
 import PropTypes from 'prop-types';
+import { Helmet } from "react-helmet-async";
 
 const CheckoutForm = ({value}) => {
    const {date,campName,venue,time,price,_id}=value
@@ -124,6 +125,9 @@ if(res?.data?.paymentResult?.insertedId){
 
     return (
         <div className='m-32  border-2 border-white  h-60'>
+           <Helmet>
+        <title>Medical-Camp | Payment </title>
+        </Helmet>
             <p className="mx-9 my-3 text-2xl text-white">Make a safe payment</p>
         <form className="my-7 px-10 py-7" onSubmit={handleSubmit}>
         <CardElement

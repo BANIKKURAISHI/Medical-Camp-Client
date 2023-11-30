@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import useAxiosSecure from "../A4(Hooks)/useAxiosSecure";
 import useAxiosPublic from "../A4(Hooks)/useAxiosPublic";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -49,7 +50,9 @@ const ReviewForm = () => {
     }
     return (
         <div className="bg-purple-300 min-h-screen rounded-lg shadow-2xl m-5">
-         
+          <Helmet>
+        <title>Medical-Camp | Review </title>
+        </Helmet>
           <section className=" dark:bg-gray-900">
   <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
       <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Send Us</h2>

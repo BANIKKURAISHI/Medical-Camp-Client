@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import useOrganizer from "../A5(Dashboard)/useOrganizer";
 import useAuth from "../A4(Hooks)/useAuth";
+import { Helmet } from "react-helmet-async";
 
 
 const Profile = () => {
@@ -11,6 +12,9 @@ const Profile = () => {
   console.log(userPost)
   return (
     <div>
+       <Helmet>
+        <title>Medical-Camp | Organizer Profile </title>
+        </Helmet>
 
     { userPost.post==="Organizers"? <>
 

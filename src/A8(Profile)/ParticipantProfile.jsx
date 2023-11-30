@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useOrganizer from "../A5(Dashboard)/useOrganizer";
+import { Helmet } from "react-helmet-async";
 
 
 const ParticipantProfile = () => {
@@ -8,6 +9,9 @@ const ParticipantProfile = () => {
     return (
         
         <div>
+           <Helmet>
+        <title>Medical-Camp | Participant Profile  </title>
+        </Helmet>
             
            { userPost.post==="Participants"? <>
          {userPost.name?<h1 className="text-4xl  text-white md:mx-20 my-4">Welcome {userPost.name}</h1>:<h1 className="text-4xl md:mx-20 my-4 text-white">Welcome Back</h1> }

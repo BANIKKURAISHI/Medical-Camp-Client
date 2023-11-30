@@ -5,6 +5,7 @@ import CampFee from "./CampFee";
 import { GiCancel } from "react-icons/gi";
 import useAxiosSecure from "../A4(Hooks)/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const RegistrationCamp = () => {
     const [registration,refetch]=useJoint()
     const axiosSecure=useAxiosSecure()
@@ -48,6 +49,9 @@ const RegistrationCamp = () => {
         }  
     return (
         <div className="bg-red-400">
+             <Helmet>
+    <title>Medical-Camp | Registration Camp </title>
+    </Helmet>
        <CampFee></CampFee>
       <div className="relative bg-orange-400 overflow-x-auto shadow-md sm:rounded-lg m-2">
       <table className="w-full  text-sm text-left rtl:text-right text-white dark:text-gray-400">

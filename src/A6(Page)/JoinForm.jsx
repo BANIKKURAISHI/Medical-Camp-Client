@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import useAuth from "../A4(Hooks)/useAuth";
 import useAxiosSecure from './../A4(Hooks)/useAxiosSecure';
 import Navbar from "../A2(Share)/Navbar";
+import { Helmet } from "react-helmet-async";
 
 
 const JoinForm = () => {
@@ -78,6 +79,9 @@ const JoinForm = () => {
  
   return (
     <div className="max-w-7xl mx-auto ">
+       <Helmet>
+    <title>Medical-Camp |Join  </title>
+    </Helmet>
       <Navbar></Navbar>
       <section className="bg-blue-500 text-white dark:bg-gray-900 ">
         <div className="flex flex-col py-4 mx-auto md:h-screen  lg:px-44 ">

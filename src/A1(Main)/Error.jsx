@@ -1,9 +1,12 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const Error = () => {
     return (
         <div className="max-w-7xl mx-auto">
-           
+           <Helmet>
+        <title>Medical-Camp | error</title>
+        </Helmet> 
 
 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <a href="#">

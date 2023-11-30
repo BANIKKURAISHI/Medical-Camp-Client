@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../A2(Share)/Banner";
 import Footer from "../A2(Share)/Footer";
 
@@ -14,6 +15,9 @@ import BestCamps from './../A6(Page)/BestCamps';
 const Home = () => {
     return (
         <div>
+           <Helmet>
+        <title>Medical-Camp | Home </title>
+        </Helmet>
        
         <Navbar></Navbar>
         

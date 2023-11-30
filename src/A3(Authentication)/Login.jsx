@@ -7,6 +7,7 @@ import useAuth from '../A4(Hooks)/useAuth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const {logIn}=useAuth()
@@ -40,6 +41,9 @@ const Login = () => {
   
   return (
     <div>
+       <Helmet>
+        <title>Medical-Camp | Login </title>
+        </Helmet>
       <Navbar></Navbar>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

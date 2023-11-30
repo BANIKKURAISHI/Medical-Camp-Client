@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import Navbar from "../A2(Share)/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const Contact= () => {
 
@@ -13,6 +14,9 @@ const Contact= () => {
  }
     return (
         <div>
+             <Helmet>
+    <title>Medical-Camp | Contact us </title>
+    </Helmet>
         <Navbar></Navbar>   
         <div className="max-w-7xl mx-auto min-h-screen">
         <section className="bg-teal-300  dark:bg-gray-900">

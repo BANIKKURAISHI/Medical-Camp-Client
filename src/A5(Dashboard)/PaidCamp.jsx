@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet-async";
 import usePaid from "../A4(Hooks)/usePaid";
 import { Link } from "react-router-dom";
 
@@ -9,6 +10,9 @@ const PaidCamp = () => {
    
     return (
         <div className="bg-red-400">
+             <Helmet>
+        <title>Medical-Camp | Paid camp </title>
+        </Helmet>
         
        <div className="relative bg-orange-400 overflow-x-auto shadow-md sm:rounded-lg m-2">
        <table className="w-full  text-sm text-left rtl:text-right text-white dark:text-gray-400">

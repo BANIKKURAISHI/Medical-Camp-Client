@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../A4(Hooks)/useAxiosPublic";
 import Swal from 'sweetalert2'
 import useAxiosSecure from "../A4(Hooks)/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddCamp = () => {
     const { register, handleSubmit,formState: { errors } } = useForm();
@@ -48,6 +49,9 @@ const AddCamp = () => {
     }
   return (
     <div className="w-[1000px] ">
+       <Helmet>
+        <title>Medical-Camp | Add Camp </title>
+        </Helmet>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col px-6 py-8 mx-auto md:h-screen  lg:py-0">
       
