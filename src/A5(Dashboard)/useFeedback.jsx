@@ -1,7 +1,6 @@
 
 
-const UpdateProfile = () => {
-
+const useFeedback = () => {
     return (
         <div>
             
@@ -9,4 +8,4 @@ const UpdateProfile = () => {
     );
 };
 
-export default UpdateProfile;
+export default useFeedback;

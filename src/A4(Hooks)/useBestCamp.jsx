@@ -1,15 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "./useAxiosPublic";
+
+import useAxiosSecure from "./useAxiosSecure";
+
 
 
 const useBestCamp = () => {
-    const axiosPublic=useAxiosPublic()
+    const axiosSecure=useAxiosSecure()
+    
    
     const {data:best=[],refetch}=useQuery({
      queryKey:['best-camps'],
+     
      queryFn:async()=>{
-         const res=await axiosPublic.get('/bestCamps')
-         return res.data
+         const res=await axiosSecure.get('/bestCamps')
+         return res?.data
      }
   })
  return [best,refetch]

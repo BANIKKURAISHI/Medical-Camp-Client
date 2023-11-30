@@ -16,7 +16,7 @@ const Registration = () => {
         formState: { errors },
       } = useForm();
 const onSubmit=(data)=>{
-    console.log('this is form',data.postName)
+ 
     createUser(data.email,data.password)
     .then(result=>{
        
@@ -31,6 +31,7 @@ const onSubmit=(data)=>{
                 email:data.email,
                 photo:data.photo,
                 post:data.postName,
+                
             }
             console.log(userInfo)
             axiosPublic.post('/user',userInfo)

@@ -23,6 +23,9 @@ import ReviewForm from "../A5(Dashboard)/ReviewForm";
 
 import UpdatePage from "../A8(Profile)/UpdatePage";
 import Privet from "../A3(Authentication)/Privet";
+import AdminRoute from "../A3(Authentication)/AdminRoute";
+import UpdateProfileOrganize from "../A8(Profile)/UpdateProfileOrganize";
+import ProfessionalUpdate from "../A8(Profile)/ProfessionalUpdate";
 
 
 
@@ -81,7 +84,7 @@ const myCreateRoute=createBrowserRouter([
             },
             {
                 path:'add-a-camp',
-                element:<AddCamp></AddCamp>
+                element:<AdminRoute><AddCamp></AddCamp></AdminRoute>
             },
             {
                 path:'manage-camps',
@@ -93,7 +96,7 @@ const myCreateRoute=createBrowserRouter([
             },
             {
                 path:'allUsers',
-                element:<AllUsers></AllUsers>
+                element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path:'Healthcare-Professionals',
@@ -104,14 +107,24 @@ const myCreateRoute=createBrowserRouter([
                 element:<ParticipantProfile></ParticipantProfile>
             },
             {
+                path:'ProfessionalUpdate/:id',
+                element:<ProfessionalUpdate></ProfessionalUpdate>
+            },
+            {
                 path:'paidCamp',
                 element:<PaidCamp></PaidCamp>
             },
             {
                 path:'UpdatePage/:id',
-                element:<UpdatePage></UpdatePage>,
+                element:<UpdatePage></UpdatePage>
                
             },
+            {
+                path:'UpdateProfileOrganize/:id',
+                element:<UpdateProfileOrganize></UpdateProfileOrganize>
+               
+            },
+            
             {
                 path:'review/:id',
                 element:<ReviewForm></ReviewForm>,
@@ -126,7 +139,7 @@ const myCreateRoute=createBrowserRouter([
            },
             {
                 path:'update-camp/:id',
-                element:<Update></Update>,
+                element:<AdminRoute><Update></Update></AdminRoute>,
                 loader:({params})=>fetch(`https://medical-camp-server-nu.vercel.app/manage-camps/${params.id}`)
             },
 

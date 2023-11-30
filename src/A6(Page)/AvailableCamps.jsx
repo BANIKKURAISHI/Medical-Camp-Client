@@ -5,7 +5,7 @@ import Navbar from "../A2(Share)/Navbar";
 
 const AvailableCamps = () => {
     return (
-        <div>
+        <div className="max-w-7xl mx-auto">
             <Navbar></Navbar>
             <Camp></Camp>
             <Footer></Footer>

@@ -22,21 +22,4 @@ const useOrganizer = () => {
 export default useOrganizer;
 
 
-// ////const useUser = () => {
-//     const axiosSecure = useAxiosSecure()
-//     const {user, loading} = useAuth() 
-//     // console.log(user)
-//     const {data: userRole,} = useQuery({
-//         queryKey: [user?.email, 'user'],
-//         enabled: !loading,
-//         queryFn: async()=>{
-//             const res = await axiosSecure.get(/user/${user.email});
-//             return res.data
-//         }
-//     })
-//     // console.log(data.role)
-//     return [userRole]
-// };
 
-// export default useUser;
-// Write to Md Rîdoy Raj

@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 
-import useAxiosPublic from "./useAxiosPublic";
+import useAxiosSecure from "./useAxiosSecure";
 
 
 const useCamp = () => {
-   const axiosPublic=useAxiosPublic()
+   const axiosSecure=useAxiosSecure()
    
    const {data:camp=[],refetch}=useQuery({
     queryKey:['manage-camps'],
     queryFn:async()=>{
-        const res=await axiosPublic.get('/manage-camps')
+        const res=await axiosSecure.get('/manage-camps')
         return res.data
     }
  })
