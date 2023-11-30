@@ -22,6 +22,7 @@ import PaidCamp from "../A5(Dashboard)/PaidCamp";
 import ReviewForm from "../A5(Dashboard)/ReviewForm";
 
 import UpdatePage from "../A8(Profile)/UpdatePage";
+import Privet from "../A3(Authentication)/Privet";
 
 
 
@@ -48,12 +49,12 @@ const myCreateRoute=createBrowserRouter([
      {
         path:'/details/:id',
         element:<Details></Details>,
-        loader:({params})=>fetch(`http://localhost:5000/manage-camps/${params.id}`)
+        loader:({params})=>fetch(`https://medical-camp-server-nu.vercel.app/manage-camps/${params.id}`)
      },
      {
         path:'/join/:id',
         element:<JoinForm></JoinForm>,
-        loader:({params})=>fetch(`http://localhost:5000/manage-camps/${params.id}`)
+        loader:({params})=>fetch(`https://medical-camp-server-nu.vercel.app/manage-camps/${params.id}`)
         
      },
     
@@ -63,7 +64,7 @@ const myCreateRoute=createBrowserRouter([
     },
     {
         path:'/contactUs',
-        element:<Contact></Contact>
+        element:<Privet><Contact></Contact></Privet>
     },
     {
         path:'/singUp',
@@ -71,7 +72,7 @@ const myCreateRoute=createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<Dashboard></Dashboard>,
+        element:<Privet><Dashboard></Dashboard></Privet>,
         children:[
             {
              path:'profile',
@@ -114,19 +115,19 @@ const myCreateRoute=createBrowserRouter([
             {
                 path:'review/:id',
                 element:<ReviewForm></ReviewForm>,
-                loader:({params})=>fetch(`http://localhost:5000/campRegistration/${params.id}`)
+                loader:({params})=>fetch(`https://medical-camp-server-nu.vercel.app/campRegistration/${params.id}`)
 
             },
            {
             path:'payment/:id' ,
             element:<Payment></Payment>,
-            loader:({params})=>fetch(`http://localhost:5000/registration/${params.id}`)
+            loader:({params})=>fetch(`https://medical-camp-server-nu.vercel.app/registration/${params.id}`)
 
            },
             {
                 path:'update-camp/:id',
                 element:<Update></Update>,
-                loader:({params})=>fetch(`http://localhost:5000/manage-camps/${params.id}`)
+                loader:({params})=>fetch(`https://medical-camp-server-nu.vercel.app/manage-camps/${params.id}`)
             },
 
         ]

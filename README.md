@@ -2,7 +2,7 @@
 <li>AssalamuAlikum</li>
 <li>Assignment Category:assignment12_category_0016</li>
 <li>Project Name: Medical Camp</li>
-<li>Front-end Live Site Link:</li>
+<li>Front-end Live Site Link: https://medical-camp-664e3.web.app</li>
 <li>My Project Features</li>
 <li>At first every one see my home page Here some navigate button </li>
 <li>You need registration for log in .</li>
@@ -17,3 +17,9 @@
 <li>A page where every camp see a participants </li>
 <li></li>
 <li></li>
+
+
+<!-- Assignment Category: assignment12_category_0016 
+Front-end Live Site Link: https://medical-camp-664e3.web.app 
+Client Side Github Repository Link:https://github.com/programming-hero-web-course1/b8a12-client-side-BANIKKURAISHI.git 
+Server Side Github Repository Link: https://github.com/programming-hero-web-course1/b8a12-server-side-BANIKKURAISHI.git -->
