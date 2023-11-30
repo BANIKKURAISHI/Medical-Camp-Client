@@ -12,7 +12,7 @@ import useAxiosSecure from "../A4(Hooks)/useAxiosSecure";
 const UpdatePage = () => {
   const { register, handleSubmit } = useForm();
   const [participant]=useParticipant()
-  console.log(participant.email)
+  console.log(participant.name)
  
   const axiosPublic=useAxiosPublic()
   const axiosSecure=useAxiosSecure()
@@ -26,7 +26,7 @@ const UpdatePage = () => {
   const  userInfo={
     name:data.name,
     number:data.number,
-    photo:data.image,
+  
     preference:data.preference,
     area:data.area ,
     moreEmail:data.newEmail,
@@ -83,10 +83,11 @@ const UpdatePage = () => {
                     type="text"
                     name="name"
                     {...register("name")}
+                    defaultValue={participant.name}
                     id="name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter your camp name"
-                   
+                    
+                  
                   />
                 
                 </div>
@@ -103,8 +104,8 @@ const UpdatePage = () => {
                     {...register("number")}
                     id="number"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter your  number"
-              
+                  
+                    defaultValue={participant.number}
                   />
                 
                 </div>
@@ -122,8 +123,8 @@ const UpdatePage = () => {
                     {...register("preference")}
                     id="Preference"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter your scheduled Preference"
-                
+                   
+                    defaultValue={participant.preference}
                   />
                   
                 </div>
@@ -140,9 +141,9 @@ const UpdatePage = () => {
                     name="area"
                     id="area"
                     {...register("area")}
-                    placeholder="••••••••"
+                   
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-             
+                    defaultValue={participant.area}
                   />
                 
                 </div>
@@ -162,8 +163,8 @@ const UpdatePage = () => {
                     {...register("newEmail")}
                     id="newEmail"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter your number"
-               
+                
+                    defaultValue={participant.moreEmail}
                   />
                  </div>
 

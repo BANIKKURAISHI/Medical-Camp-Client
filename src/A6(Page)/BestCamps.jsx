@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useBestCamp from "../A4(Hooks)/useBestCamp";
 import { HiCurrencyDollar } from "react-icons/hi2";
+import SocialPlatform from "../A8(Profile)/SocialPlatform";
 
 
 const BestCamps = () => {
@@ -8,11 +9,11 @@ const BestCamps = () => {
 
 
     return (
-    <div>
-     <div className="max-w-7xl mx-auto grid my-10 gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="max-w-7xl mx-auto flex flex-row">
+     <div className="w-3/4 max-w-7xl mx-auto grid my-10 gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
          {
             best.map(data=>
-                <div key={data.key} className="max-w-sm text-justify bg-blue-400 text-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div key={data.key} className="lg:w-[420px] h-[650px] text-justify bg-blue-400 text-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
                         <img className="rounded-t-lg w-full h-72" src={data.image} alt="" />
                     </a>
@@ -50,7 +51,11 @@ const BestCamps = () => {
                 </div>
                 )
          }   
-        </div>   
+        </div> 
+        <div className="w-1/4 lg:mr-10">
+        <SocialPlatform></SocialPlatform>   
+            </div>  
+       
     </div>
     )
 };
